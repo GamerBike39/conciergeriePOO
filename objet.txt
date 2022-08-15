@@ -1,0 +1,54 @@
+Objet 
+
+Chaque objet aura des actions associées à lui.
+
+par exemple :  
+une cafetière que l'on peut allumer ou éteindre
+une porte que l'on peut ouvrir ou fermer
+
+On va donc pour chacun des objets : 
+lui donner  -des caractéristiques appelées : propriétés de l'objet
+            -des actions appelées : méthodes de l'objet (fonction)
+
+
+*/
+
+Si nous souhaitons manipuler des objets dans l'optique de créer une gestion de compte bancaire, nous créerons un objet "compte".
+Cet objet aura des caractéristiques (propriétés)
+    - un numéro de compte
+    - un solde
+    - un taux de débit
+    - un taux de crédit
+
+et des actions (méthodes)
+    - créditer
+    - débiter
+    - virer
+    - afficher le solde
+    - afficher le numéro de compte
+    - afficher le taux de débit
+    - afficher le taux de crédit
+*/
+
+Des conventions à respecter pour le poo
+Une seule classe par fichier et qui porte le même nom que le fichier.
+Le nom de la classe est écrite en UpperCamelCase "par ex. CompteBancaire"
+bien commenté son code
+
+*******************************************************************************************************
+
+Les différentes visibilités
+
+Il existe 3 visibilités pour nos propriétés et méthodes :
+
+    public : la propriété ou la méthode pourront être accédés depuis l'intérieur et l'extérieur de la classe
+    private : l'accès à la propriété ou la méthode est possible uniquement depuis l'intérieur de la classe
+    protected : équivalent à private mais accessible également dans les classes héritées
+
+On parle d'encapsulation des données et ça permet de protéger le fonctionnement de notre classe la plus part du temps. 
+Lorsque que l'on déclare la pluspart du temps sa sera private
+à partir du moment où l'on met private, si on l'on veut accéder à la propriété de l'exterieur. 
+Nous allons devoir mettre en place des accesseurs. Qui nous permettront de changer les caractéristiques. 
+getters et setters.
+l'obternir et la définir. 
+La plus part du temps juste après le constructeur.
