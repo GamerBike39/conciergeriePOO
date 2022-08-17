@@ -22,6 +22,11 @@ class Autoloader
         $class = str_replace(__NAMESPACE__ . '\\', '', $class);
         // on remplace les \ par des /
         $class = str_replace('\\', '/', $class);
-        echo $class;
+        echo __DIR__ . '/' . $class . '.php';
+        // on verifie si le fichier existe
+        $fichier = __DIR__ . '/' . $class . '.php';
+        if (file_exists($fichier)) {
+            require $fichier;
+        }
     }
 }
