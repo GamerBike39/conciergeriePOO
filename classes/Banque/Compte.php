@@ -1,7 +1,10 @@
 <?php
+
+namespace App\Banque;
+
 // on le créé avec class
 /**
- * objet Compte Bancaire
+ * objet Compte Bancaire. abstract pour ne pas pouvoir l'instancier directement
  */
 abstract class Compte 
 {
@@ -17,7 +20,7 @@ private $titulaire;
  * solde du compte
  * @var float
  */
-private $solde;
+protected $solde;
 
 // constantes
 // ces propriétés ne sont pas accessible depuis l'instance elle même, mais uniquement depuis la classe.
@@ -39,7 +42,6 @@ private const TAUX_INTERETS = 0.5;
         // this se réfère à l'instance courante, c'est l'objet que l'on utilise
         $this->titulaire = $nom;
         $this->solde = $montant;
-        $this->solde = $montant + ($montant * self::TAUX_INTERETS);
         // self:: permet d'appeler la constante de la classe courante à l'intérieur même de la classe vu que c'est une constante privée
     }
 
@@ -121,32 +123,6 @@ private const TAUX_INTERETS = 0.5;
     {
         echo "le solde du compte est de : $this->solde euros";
     }
-
-    public function retirer(float $montant)
-    {
-// on vérifie le montant et le solde, si le retrait est négatif ça serait un dépôt
-/**
- * montant à retirer du compte
- * @var float
- */   
-if ($montant > 0 && $this->solde >= $montant) {
-            $this->solde -= $montant;
-        }else
-        {
-            echo "le montant à retirer est invalide ou le solde est insuffisant";
-        }
-       echo $this->decouvert();
-
-    }
-
-    private function decouvert(){
-        if ($this->solde <= 0) {
-            return " vous êtes à découvert ";
-        }else{
-            return " Vous n'êtes pas à découvert";
-        }
-    }
-
-};
+}
 
 // maintenant que l'objet est créer, pour pouvoir l'utiliser, on doit l'instancier, c'est à dire crééer, une instance, version de l'objet utilisé sous la forme d'une variable.
