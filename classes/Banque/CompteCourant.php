@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Banque;
+use App\Client\Compte as CompteClient;
 
 /**
  * Classe Compte Bancaire (hérite de Compte) on récupère tout par héritage avec extends.
@@ -11,15 +12,15 @@ class CompteCourant extends Compte
 
     /**
      * Constructeur CompteCourant
-     * @param string $nom Titulaire du compte
-     * @param float $montant Solde du compte
+     * @param CompteClient $compte compte client du compte
+     * @param float $montant Solde du compte à l'ouverture
      * @param float $decouvert Decouvert autorisé
      */
-    public function __construct(string $nom, float $montant, float $decouvert)
+    public function __construct(CompteClient $compte, float $montant, float $decouvert)
     {
         // on transfère les informations nécessairees au constructeur de Compte
         // on envoie les informations au parent
-        parent::__construct($nom, $montant);
+        parent::__construct($compte, $montant);
 
         // constrcuteur local
         $this->decouvert = $decouvert;

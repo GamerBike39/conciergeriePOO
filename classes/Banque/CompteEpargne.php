@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Banque;
-
+use App\Client\Compte as CompteClient;
 /**
  * Compte avec taux d'intérêts
  */
@@ -15,13 +15,13 @@ class CompteEpargne extends Compte
 /**
  * Constructeur du compte épargne
  *
- * @param string $nom Titulaire du compte
+ * @param CompteClient $compte Titulaire du compte
  * @param float $montant Solde du compte
  * @param integer $taux_interets Taux d'intérêts
  */
-public function __construct(string $nom, float $montant, int $taux_interets)
+public function __construct(CompteClient $compte, float $montant, int $taux_interets)
 {
-    parent::__construct($nom, $montant);
+    parent::__construct($compte, $montant);
     $this->taux_interets = $taux_interets;
 }
 
