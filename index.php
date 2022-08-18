@@ -45,8 +45,8 @@ var_dump($compte1);
 var_dump($compte2);
 $compte2->verserInterets();
 var_dump($compte2);
-$client = new CompteClient();
-var_dump($client);
+// $client = new CompteClient();
+// var_dump($client);
 
 
 // echo "le taux d'intérêt du compte est de : " . Compte::TAUX_INTERETS . " %";

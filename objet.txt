@@ -52,3 +52,8 @@ Nous allons devoir mettre en place des accesseurs. Qui nous permettront de chang
 getters et setters.
 l'obternir et la définir. 
 La plus part du temps juste après le constructeur.
+
+**********************
+injection de dépendance !
+Nous avions à présent des classes qui n'étaient pas dépendante des unes des autres.
+
