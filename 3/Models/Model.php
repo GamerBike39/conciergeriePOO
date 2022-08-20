@@ -10,7 +10,9 @@ class Model extends Db
     // instance de Db
     private $db;
 
-
+    /**
+     * trouver toute les occurences Select*from this table
+     */
     public function findAll(){
         $query = $this->requete('SELECT * FROM ' . $this->table);
         return $query->fetchAll();
@@ -30,7 +32,6 @@ class Model extends Db
         }
         // on transforme le tableau champ en une chaine de caractères
         $liste_champs = implode(' AND ', $champs);
-        var_dump($liste_champs);
 
         // on peut maintenant exécuter la requête
         return $this->requete('SELECT * FROM ' . $this->table . ' WHERE ' . $liste_champs, $valeurs)->fetchAll();
