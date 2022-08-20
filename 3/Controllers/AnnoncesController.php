@@ -17,7 +17,7 @@ class AnnoncesController extends Controller
        $annoncesModel = new AnnoncesModel();
       // on va chercher toutes les annonces.
       $annonces = $annoncesModel->findBy(array("actif" => 1));
-      $this->render('annonces/index', ['annonces' => $annonces]);
+      $this->render('annonces/index',compact('annonces'));
        
     }
 }
