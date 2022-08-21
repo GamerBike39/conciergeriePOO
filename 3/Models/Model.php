@@ -42,15 +42,15 @@ class Model extends Db
     }
 
 
-    public function create(Model $model){
+    public function create(){
         $champs = [];
         $inter = [];
         $valeurs = [];
         //   on boucle pour éclater le tableau
 
 
-        foreach($model as $champ => $valeur){
-              if($valeur != null && $champ != 'db' && $champ != 'table'){
+        foreach($this as $champ => $valeur){
+              if($valeur !== null && $champ != 'db' && $champ != 'table'){
           // INSERT INTO annonces (titre, description, actif) VALUES (?, ?, ?);
           $champs[] = $champ;
           $inter[] = '?';
@@ -63,17 +63,17 @@ class Model extends Db
           return $this->requete('INSERT INTO ' .$this->table.' ('.$liste_champs.') VALUES('.$liste_inter.')', $valeurs);
     }
 
-    public function update(int $id, Model $model){
+    public function update(){
         $champs = [];
         $valeurs = [];
         //   on boucle pour éclater le tableau
-        foreach($model as $champ => $valeur){
+        foreach($this as $champ => $valeur){
               if($valeur !== null && $champ != 'db' && $champ != 'table'){
           // UPDATE annonces SET titre = ?, description = ?, actif = ? WHERE id = ?;
           $champs[] = "$champ = ?";
           $valeurs[] = $valeur;
           } }
-          $valeurs[] = $id;
+          $valeurs[] = $this->id;
           // on transforme le tableau champ en une chaine de caractères
           $liste_champs = implode(' , ', $champs);
           // on peut maintenant exécuter la requête
@@ -103,7 +103,7 @@ class Model extends Db
        }
     }
 
-    public function hydrate(array $donnees){
+    public function hydrate($donnees){
         foreach($donnees as $key => $value){
             // on récupère le nom du setter correspondant à la clé
             $setter = "set".ucfirst($key);

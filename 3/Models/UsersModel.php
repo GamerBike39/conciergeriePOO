@@ -10,6 +10,17 @@ class UsersModel extends Model{
     public function __construct(){
         $class = str_replace(__NAMESPACE__.'\\','', __CLASS__);
         $this->table = strtolower(str_replace('Model', '', $class));
+        // ce constructeur nous permet de récupérer dans table le nom de la table correspondante
+    }
+
+    /**
+     * permet de récupérer un user à partir de son email
+     *
+     * @param string $email
+     * @return mixed
+     */
+    public function findOneByEmail(string $email){
+        return $this->requete('SELECT * FROM ' . $this->table . ' WHERE email = ?', [$email])->fetch();
     }
 
     /**
