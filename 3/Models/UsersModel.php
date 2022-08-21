@@ -24,6 +24,18 @@ class UsersModel extends Model{
     }
 
     /**
+     * créer une session utilisateur
+     *
+     * @param [type] $session
+     * @return void
+     */
+    public function SetSession($session){
+        $_SESSION['user'] = [
+           'id' => $this->id,
+           'email' => $this->email];
+    }
+
+    /**
      * Get the value of password
      */ 
     public function getPassword()

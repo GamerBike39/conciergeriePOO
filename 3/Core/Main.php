@@ -10,7 +10,7 @@ class Main
 {
     public function start()
     {
-        // on démarrre la session, on est sur qu'ici c'est le premier endroit ou il sera actif
+        // on démarrre la session, on est sur qu'ici c'est le premier endroit ou il sera actif, On aura ensuite accès à la variable super glogbale $_SESSION
         session_start();
 
         // on retire le "trailing slash"  éventuel de l'url

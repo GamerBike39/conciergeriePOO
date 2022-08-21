@@ -28,6 +28,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/annonces">Liste des annonces</a>
                 </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout">déconnexion</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/profil">Profil</a>
+                        <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/users/login">Connexion</a>
+                </ul>
+                <?php endif; ?>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>

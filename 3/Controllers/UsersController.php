@@ -11,6 +11,8 @@ class UsersController extends Controller
      */
     public function login()
     {
+        $_SESSION['user'] = ['id' => 1, 'email' => 'toto@gmail.com'];
+
         $form = new Form();
         $form   -> debutForm()
                 -> ajoutLabefFor('email', 'E-mail :')
