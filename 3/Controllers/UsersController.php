@@ -94,4 +94,17 @@ class UsersController extends Controller
         $this->render('users/register', ['registerForm' => $form->create()]);
     }
 
+
+    /**
+     * Déconnexion de l'utilisateur
+     * @return exit
+     */
+    public function logout()
+    {
+        // on détruit la session
+        session_destroy();
+        // on redirige l'utilisateur vers la page d'accueil
+        header('Location: '.$_SERVER['HTTP_REFERER']);
+        exit;
+    }
 }
