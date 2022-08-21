@@ -3,7 +3,7 @@ namespace App\Controllers;
 
 abstract class Controller{
 
-public function render(string $fichier, array $donnees = [] )
+public function render(string $fichier, array $donnees = [], string $template = 'default' )
 {
     // on extrait le contenu de $donnees
     extract($donnees);
@@ -19,7 +19,7 @@ public function render(string $fichier, array $donnees = [] )
     $contenu = ob_get_clean();
 
     // template de page qui utilise la variable $contenu
-    require_once ROOT.'/Views/default.php';
+    require_once ROOT.'/Views/'.$template.'.php';
 }
 }
 ?>
