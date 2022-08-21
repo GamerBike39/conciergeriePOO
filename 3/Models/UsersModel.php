@@ -29,7 +29,7 @@ class UsersModel extends Model{
      * @param [type] $session
      * @return void
      */
-    public function SetSession($session){
+    public function setSession(){
         $_SESSION['user'] = [
            'id' => $this->id,
            'email' => $this->email];

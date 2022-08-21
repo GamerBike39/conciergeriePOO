@@ -11,7 +11,44 @@ class UsersController extends Controller
      */
     public function login()
     {
-        $_SESSION['user'] = ['id' => 1, 'email' => 'toto@gmail.com'];
+        // on vérifie si le formulaire est complet
+        if(form::validate($_POST, ['email', 'password']))
+        {
+            // lz formulaire est complet
+            // on va chercher dans la bdd l'utilisateur avec l'email rentré
+            $usersModel = new UsersModel;
+            $userArray = $usersModel->findOneByEmail(strip_tags($_POST['email']));
+
+            // si l'utilisateur n'existe pas
+            if(!$userArray)
+            {
+                // on envoie un message de session
+                $_SESSION['erreur'] = "L'adresse email et/ou le mot de passe est incorrect";
+                header("Location: /users/login");
+                exit;
+            }
+
+            // l'utilisateur existe
+            $user = $usersModel -> hydrate($userArray);
+
+            // on vérifie le mot de passe
+            if(password_verify($_POST['password'], $user->getPassword()))
+            {
+                // le mot de passe est bon
+                $user->setSession();
+                header("Location: /");
+                exit;
+
+            } else 
+            {
+                // le mot de passe est incorrect
+                $_SESSION['erreur'] = "L'adresse email et/ou le mot de passe est incorrect";
+                header("Location: /users/login");
+                exit;
+
+            }
+
+        }
 
         $form = new Form();
         $form   -> debutForm()
