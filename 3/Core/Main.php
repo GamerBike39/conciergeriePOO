@@ -41,15 +41,16 @@ class Main
             $controller = '\\App\\Controllers\\'.ucfirst(array_shift($params)).'Controller';
 
             // on instancie le controlleur ptet pas au bon endroit
-            // $controller = new $controller();
+            $controller = new $controller();
             // on récupère le 2e paramètre de l'url
             $action = isset($params[0]) ? array_shift($params) : 'index';
             // est-ce que le controlleur possède cette méthode ?
             if(method_exists($controller, $action)){
                 // on instancie le controlleur
-                $controller = new $controller();
+                // $controller = new $controller();
             //    si il passe des paramètres on les passe à la méthode
-            (isset($params[0])) ? $controller->$action($params) : $controller->$action();      
+            // (isset($params[0])) ? $controller->$action($params) : $controller->$action();      
+            (isset($params[0])) ? call_user_func_array([$controller, $action], $params): $controller->$action();      
             }
             else {
                 // on affiche une erreur 404

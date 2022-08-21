@@ -20,4 +20,22 @@ class AnnoncesController extends Controller
       $this->render('annonces/index',compact('annonces'));
        
     }
+
+    /**
+     * Cette méthode affichera une page listant toutes les annonces de la base de données
+     * @param int $id Id de l'annonce
+     * @return void
+     */
+    public function lire(int $id)
+    {
+    //  on instancie le modèle
+    $annoncesModel = new AnnoncesModel();
+
+    // on va chercher l'annonce correspondant à l'id
+    $annonce = $annoncesModel->find($id);
+
+    // on envoie à la vue
+    $this->render('annonces/lire', compact('annonce'));
+
+    }
 }
