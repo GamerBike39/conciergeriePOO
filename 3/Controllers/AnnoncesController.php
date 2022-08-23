@@ -78,9 +78,9 @@ class AnnoncesController extends Controller
         $form = new Form;
         $form   -> debutForm()
                 -> ajoutLabefFor('titre', 'Titre de l\'annonce :')
-                -> ajoutInput('text', 'titre', ['id' => 'titre', 'class' => 'form-control', 'placeholder' => 'Votre titre', 'required'])
+                -> ajoutInput('text', 'titre', ['id' => 'titre', 'class' => 'form-control', 'placeholder' => 'Votre titre', 'required' => 'required'])
                 -> ajoutLabefFor('description', 'Description de l\'annonce :')
-                -> ajoutTextarea('description', '', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required'])
+                -> ajoutTextarea('description', '', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required'])
                 -> ajoutBouton('Ajouter', ['class' => 'btn btn-primary'])
                 ->finForm();
 
