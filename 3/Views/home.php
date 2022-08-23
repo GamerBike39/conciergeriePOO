@@ -12,6 +12,14 @@
 
 <body>
 
+    <?php if(!empty($_SESSION['message'])) : ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
+    </div>
+    <?php endif; ?>
+
+
+
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Mes Annonces</a>

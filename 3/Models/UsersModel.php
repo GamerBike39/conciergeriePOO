@@ -6,6 +6,7 @@ class UsersModel extends Model{
     protected $id;
     protected $email;
     protected $password;
+    protected $users_id;
 
     public function __construct(){
         $class = str_replace(__NAMESPACE__.'\\','', __CLASS__);
@@ -94,4 +95,6 @@ class UsersModel extends Model{
 
         return $this;
     }
+
+
 }
