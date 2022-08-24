@@ -59,8 +59,8 @@ class Form
             {
             $str .= " $attribut";
             } else {
-                // on ajoute l'attribut et sa valeur
-                $str .= " $attribut='$valeur'";
+                // on ajoute l'attribut et sa valeur avec des échapements pour éviter des erreurs de rendu 
+                $str .= " $attribut=\"$valeur\"";
             }
         }
 
@@ -166,7 +166,7 @@ class Form
             // on boucle sur les options
             foreach ($options as $valeur => $texte) {
                 // on ouvre la balise option et on y ajoute les options
-                $this->formCode .= "<option value='$valeur'>$texte</option>";
+                $this->formCode .= "<option value=\"$valeur\">$texte</option>";
             }
             // on ferme la balise
             $this->formCode .= "</select>";
