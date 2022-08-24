@@ -121,12 +121,15 @@ class AnnoncesController extends Controller
           exit;
         }
 
-        // est ce que l'annonce appartient à l'utilisateur ?  on vérifie si il est propriétaire de l'annonce
-        if($annonce->users_id !== $_SESSION['user']['id'])
-        {
-          $_SESSION['erreur'] = "Vous n'avez pas le droit d'accèder à cette page";
-          header("Location: /annonces");
-          exit;
+        // est ce que l'annonce appartient à l'utilisateur ?  on vérifie si il est propriétaire de l'annonce ou admin
+        if($annonce->users_id !== $_SESSION['user']['id']){
+            if (!in_array('ROLE_ADMIN' , $_SESSION['user']['roles']))
+            { 
+              $_SESSION['erreur'] = "Vous n'avez pas le droit d'accèder à cette page";
+              header("Location: /annonces");
+              exit;
+            }
+        
         }
 
         // on traite le formulaire 
@@ -163,7 +166,7 @@ class AnnoncesController extends Controller
                 -> ajoutBouton('Modifier', ['class' => 'btn btn-primary'])
                 ->finForm();
 
-                $this->render('annonces/modifier', ['form'=>$form->create()]);
+                $this->render('annonces/modifier', ['form'=>$form->create()], "admin");
 
 
       }else {

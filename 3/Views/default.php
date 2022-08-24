@@ -30,15 +30,24 @@
                 </ul>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
+
+                    <?php if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+                    </li>
+                    <?php endif; ?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/users/logout">déconnexion</a>
 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/users/profil">Profil</a>
-                        <?php else: ?>
+                    </li>
+                    <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/users/login">Connexion</a>
+                    </li>
                 </ul>
                 <?php endif; ?>
                 <!-- <form class="d-flex" role="search">
