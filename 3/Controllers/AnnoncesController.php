@@ -71,16 +71,22 @@ class AnnoncesController extends Controller
           $_SESSION['message'] = "L'annonce a bien été ajoutée";
           header("Location: /");
           exit;
-        } 
+        } else {
+          // le formulaire est incomplet
+          $_SESSION['erreur'] = !empty($_POST['erreur']) ? "Le formulaire est incomplet" : '';
+          $titre = isset($_POST['titre']) ? strip_tags($_POST['titre']) : '';
+          $description = isset($_POST['description']) ? strip_tags($_POST['description']) : '';
+          // ceci nous permet de garder les infomrations enregistrées dans le cas d'une erreur dans le remplissage du formulaire
+        }
 
 
 
         $form = new Form;
         $form   -> debutForm()
                 -> ajoutLabefFor('titre', 'Titre de l\'annonce :')
-                -> ajoutInput('text', 'titre', ['id' => 'titre', 'class' => 'form-control', 'placeholder' => 'Votre titre', 'required' => 'required'])
+                -> ajoutInput('text', 'titre', ['id' => 'titre', 'class' => 'form-control', 'placeholder' => 'Votre titre', 'required' => 'required', 'value' => $titre])
                 -> ajoutLabefFor('description', 'Description de l\'annonce :')
-                -> ajoutTextarea('description', '', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required'])
+                -> ajoutTextarea('description', $description, ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required'])
                 -> ajoutBouton('Ajouter', ['class' => 'btn btn-primary'])
                 ->finForm();
 
