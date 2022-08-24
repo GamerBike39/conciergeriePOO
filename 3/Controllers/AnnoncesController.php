@@ -151,7 +151,7 @@ class AnnoncesController extends Controller
 
           // on redirige
           $_SESSION['message'] = "L'annonce a bien été modifiée";
-          header("Location: /");
+          header("Location: /admin/annonces");
           exit;
         }
 

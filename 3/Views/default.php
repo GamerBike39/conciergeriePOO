@@ -28,7 +28,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/annonces">Liste des annonces</a>
                 </ul>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-auto">
+                <ul class="navbar-nav mb-lg-0 ms-auto">
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
 
                     <?php if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])): ?>

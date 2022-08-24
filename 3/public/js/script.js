@@ -1,9 +1,10 @@
 window.onload = () => {
-    const boutons = document.querySelectorAll(".form-check-input");
+    const boutonsSwitch = document.querySelectorAll(".form-check-input");
 
-    for (let bouton of boutons) {
-        bouton.addEventListener("click", activer)
+    for (let boutonS of boutonsSwitch) {
+        boutonS.addEventListener("click", activer)
     }
+
 }
 
 function activer() {
@@ -11,3 +12,14 @@ function activer() {
     xmlhttp.open('GET', '/admin/activeAnnonce/' + this.dataset.id);
     xmlhttp.send();
 }
+
+const alert = document.querySelectorAll(".alert");
+
+function closeTimeOut() {
+    setTimeout(() => {
+        alert.forEach(a => {
+            a.style.display = "none";
+        })
+    }, 2000);
+}
+closeTimeOut();

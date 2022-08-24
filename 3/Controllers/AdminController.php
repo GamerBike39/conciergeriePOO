@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\UsersModel;
 use App\Models\AnnoncesModel;
 
 class AdminController extends Controller
@@ -61,6 +62,32 @@ class AdminController extends Controller
            
         }
     }
+
+
+    public function users()
+    {
+        if($this->isAdmin()){
+            $usersModel = new UsersModel();
+            $users = $usersModel->findAll();
+            $this->render('admin/users', compact('users'), "admin");
+        }
+    }
+
+    /**
+     * Supprime un user si l'on est admin
+     *
+     * @return void
+     */
+    public function supprimeUser(int $id)
+    {
+        if($this->isAdmin()){
+            $user= new UsersModel();
+            $user->delete($id);
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+           
+        }
+    }
+
 
     /**
      * verifie si l'on est admin 
