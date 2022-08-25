@@ -38,12 +38,3 @@
         </table>
 
         <a class="nav-link col-2" href="/admin/ajouter">Ajouter une tache ➕</a>
-
-        <!-- creer un datepicker -->
-        <form>
-            <label>
-                Veuillez saisir une date :
-                <input type="date" name="choixDate">
-            </label>
-            <a href="/admin/choixDate/<?= $tache->date ?>" class=" btn btn-danger btn-del"><button>Envoyer</button></a>
-        </form>

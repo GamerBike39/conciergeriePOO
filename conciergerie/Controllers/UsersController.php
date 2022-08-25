@@ -36,7 +36,11 @@ class UsersController extends Controller
             {
                 // le mot de passe est bon
                 $user->setSession();
-                header("Location: /");
+                if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])){
+                  header("Location: /admin");
+                 }else{
+                  header("Location: /");
+                 }
                 exit;
 
             } else 
