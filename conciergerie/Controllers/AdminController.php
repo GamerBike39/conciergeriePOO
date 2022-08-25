@@ -5,9 +5,9 @@ namespace App\Controllers;
 use App\Core\Form;
 use App\Models\UsersModel;
 use App\Models\TachesModel;
-use App\Models\AnnoncesModel;
+use App\Models\Model;
 
-class AdminController extends Controller
+class AdminController extends Controller 
 {
     public function index()
     {
@@ -49,6 +49,58 @@ class AdminController extends Controller
         }
     }
 
+    /**
+     * trier par étages
+     */
+    public function etage(int $etage)
+    {
+        if($this->isAdmin()){
+            $tachesModel = new TachesModel();
+            $taches = $tachesModel->findBy(array("etage" => $etage));
+            $this->render('admin/taches', compact('taches'), "admin");
+        }
+      }
+
+    /**
+     * trier par appart
+     */
+    public function appart(int $appart)
+    {
+        if($this->isAdmin()){
+            $tachesModel = new TachesModel();
+            $taches = $tachesModel->findBy(array("appart" => $appart));
+            $this->render('admin/taches', compact('taches'), "admin");
+        }
+    }
+
+    /**
+     * trier par type de tache
+     * @param string $type
+     * @return void
+     */
+    public function type(string $type)
+    {
+        if($this->isAdmin()){
+            $tachesModel = new TachesModel();
+            $taches = $tachesModel->findBy(array("type_tache" => $type));
+            $this->render('admin/taches', compact('taches'), "admin");
+        }
+    }
+
+    /**
+     * trier par date
+     */
+    public function date(string $date)
+    {
+        if($this->isAdmin()){
+            $tachesModel = new TachesModel();
+            $taches = $tachesModel->findByDate($date);
+            $this->render('admin/taches', compact('taches'), "admin");
+        }
+    }
+    
+      
+  
       /**
      * ajouter une tache si l'admin est connecté
      */
@@ -213,10 +265,12 @@ class AdminController extends Controller
       }
     }
 
+    
 
 
-
-
+    /**
+     * afficher tout les utilisateurs
+     */
     public function users()
     {
         if($this->isAdmin()){

@@ -41,7 +41,11 @@ class Model extends Db
     return $this->requete('SELECT * FROM ' . $this->table . ' WHERE id = ?', [$id])->fetch();
     }
 
+    public function findByDate($date){
+        return $this->requete('SELECT * FROM ' . $this->table . ' WHERE date = ?', [$date])->fetchAll();
+    }
 
+    
     public function create(){
         $champs = [];
         $inter = [];

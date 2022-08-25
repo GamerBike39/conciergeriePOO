@@ -16,7 +16,8 @@ class TachesModel extends Model{
     public function __construct(){
 
         $this->table = 'taches';
-    }   
+    }
+
 
 
     /**

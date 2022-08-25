@@ -2,7 +2,9 @@
 
     <thead>
         <th>ID</th>
-        <th>Date</th>
+        <th class="d-flex">Date <p>⬆️</p>
+            <p>⏬</p>
+        </th>
         <th>Type</th>
         <th>Desc</th>
         <th>Appart</th>
@@ -12,11 +14,12 @@
         <?php foreach ($taches as $tache): ?>
         <tr>
             <td><?= $tache->id ?></td>
-            <td><?= $tache->date ?></td>
-            <td><?= $tache->type_tache ?></td>
+            <td><a class="nav-link col-2" href="/admin/date/<?= $tache->date ?>"><?= $tache->date ?></a>
+            <td><a class="nav-link col-2" href="/admin/type/<?= $tache->type_tache ?>"><?= $tache->type_tache ?></a>
+            </td>
             <td><?= $tache->desc_tache ?></td>
-            <td><?= $tache->appart ?></td>
-            <td><?= $tache->etage ?></td>
+            <td><a class="nav-link col-2" href="/admin/appart/<?= $tache->appart ?>"><?= $tache->appart ?></a></td>
+            <td><a class="nav-link col-2" href="/admin/etage/<?= $tache->etage ?>"><?= $tache->etage ?></a></td>
             <td>
                 <a href="/admin/modifier/<?= $tache->id ?>" class=" btn btn-warning">Modifier</a>
                 <a href="/admin/supprimeTache/<?= $tache->id ?>" class=" btn btn-danger btn-del">Supprimer</a>
@@ -32,4 +35,4 @@
 
 </table>
 
-<a class="nav-link" href="/admin/ajouter">Tache en ➕</a>
+<a class="nav-link col-2" href="/admin/ajouter">Ajouter une tache ➕</a>
