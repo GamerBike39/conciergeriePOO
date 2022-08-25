@@ -1,1 +1,0 @@
-<p>Page d'accueil de toto</p>

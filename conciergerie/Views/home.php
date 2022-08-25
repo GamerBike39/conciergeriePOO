@@ -26,23 +26,32 @@
                         <a class="nav-link" aria-current="page" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/taches">Liste des taches</a>
+                        <a class="nav-link" href="#">Actualité</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/taches/ajouter">Ajouter une tache</a>
+                        <a class="nav-link" href="#">Déposer une annonce</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
+
+                    <?php if (isset($_SESSION['user']['roles']) && in_array('ROLE_ADMIN', $_SESSION['user']['roles'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin">Admin</a>
+                    </li>
+                    <?php endif; ?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="/users/logout">déconnexion</a>
 
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/users/profil">Profil</a>
-                        <?php else: ?>
+                    </li>
+                    <?php else: ?>
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/users/login">Connexion</a>
+                    </li>
                 </ul>
                 <?php endif; ?>
             </div>
@@ -62,15 +71,13 @@
             <?php echo $_SESSION['erreur']; unset($_SESSION['erreur']); ?>
         </div>
         <?php endif; ?>
-        <?= $contenu ?>
     </div>
-    <div class="text-center">
-        <a href="/annonces" class="btn-primary">Voir la liste des annonces</a>
-    </div>
+    <?= $contenu ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
         integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
     </script>
+    <script src="/js/script.js"></script>
 </body>
 
 </html>

@@ -17,7 +17,7 @@ class AdminController extends Controller
         $this->render('admin/index', [], "admin");
     } 
     
-}
+    }
 
     /**
      * affiche la liste des taches sous forme de tableau
@@ -98,7 +98,30 @@ class AdminController extends Controller
             $this->render('admin/taches', compact('taches'), "admin");
         }
     }
-    
+
+    /**
+     * choisir date
+     *
+     * @param string $date
+     * @return void
+     */
+    public function choixDate(string $date)
+    {
+        if($this->isAdmin()){
+            $date = strip_tags($_POST['date']);
+            $tachesModel = new TachesModel();
+            $tachesModel ->setDate($date);
+            $tachesModel ->create();
+            $form = new Form();
+            $form   -> debutForm()
+                    ->ajoutLabefFor('date', 'Date')
+                    -> ajoutInput('date', 'date', ['id' => 'date', 'class' => 'form-control', 'placeholder' => 'choisissez une date', 'value' => $date])
+                    -> ajoutBouton('choisir', ['class' => 'btn btn-primary'])
+                    ->finForm();
+            $taches = $tachesModel->findByDate($date);
+            $this->render('admin/taches', compact('taches'), "admin");
+        }
+    }
       
   
       /**
@@ -142,7 +165,7 @@ class AdminController extends Controller
             // le formulaire est incomplet
             $_SESSION['erreur'] = !empty($_POST['erreur']) ? "Le formulaire est incomplet" : '';
             $date = isset($_POST['date']) ? strip_tags($_POST['date']) : '';
-            $type_tache = isset($_POST['type_tache']) ? strip_tags($_POST['type_tache']) : '';
+        
             $desc_tache = isset($_POST['desc_tache']) ? strip_tags($_POST['desc_tache']) : '';
             $appart = isset($_POST['appart']) ? strip_tags($_POST['appart']) : '';
             $etage = isset($_POST['etage']) ? strip_tags($_POST['etage']) : '';
@@ -155,9 +178,9 @@ class AdminController extends Controller
           -> ajoutLabefFor('date', 'date de l\'annonce :')
           -> ajoutInput('date', 'date', ['id' => 'date', 'class' => 'form-control', 'placeholder' => 'date', 'required' => 'required', 'value' => $date])
           -> ajoutLabefFor('type_tache', 'Type de la tache:')
-          -> ajoutInput('text', 'type_tache', ['id' => 'type_tache', 'class' => 'form-control', 'placeholder' => 'Nature de la tache', 'required' => 'required', 'value' => $type_tache])
+          -> ajoutSelect('type_tache', ['reparation'=> 'reparation','changement' => 'changement','assistance'=> 'assistance', 'autre'=>'autre'])
           -> ajoutLabefFor('description', 'Description de la tache :')
-          -> ajoutInput('description', 'desc_tache', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required', 'value' => $desc_tache])
+          -> ajoutTextarea('description', '', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required', 'value' => $desc_tache])
             -> ajoutLabefFor('appart', 'Appartement :')
             -> ajoutInput('number', 'appart', ['id' => 'appart', 'class' => 'form-control', 'placeholder' => 'Appartement', 'required' => 'required', 'value' => $appart])
             -> ajoutLabefFor('etage', 'Etage :')
@@ -177,6 +200,10 @@ class AdminController extends Controller
         }
     }
 
+
+    /**
+     * modifier une tache si l'admin est connecté
+     */
     public function modifier(int $id)
     {
       if(isset($_SESSION['user']) && !empty($_SESSION['user']['id']))
@@ -264,6 +291,7 @@ class AdminController extends Controller
         exit;
       }
     }
+
 
     
 

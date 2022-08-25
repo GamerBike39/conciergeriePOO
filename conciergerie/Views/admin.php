@@ -29,10 +29,10 @@
                         <a class="nav-link" aria-current="page" href="/admin">Accueil de l'admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/taches">Liste des taches</a>
+                        <a class="nav-link" href="/admin/taches">Liste des taches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/taches/ajouter">Ajouter une tache</a>
+                        <a class="nav-link" href="/admin/ajouter">Ajouter une tache</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">
@@ -53,7 +53,7 @@
     </nav>
 
 
-    <div class="container">
+    <div class="container col-6 my-auto py-5">
         <?php if(!empty($_SESSION['erreur'])) : ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $_SESSION['erreur']; unset($_SESSION['erreur']); ?>
