@@ -31,3 +31,5 @@
         <?php endif; ?>
 
 </table>
+
+<a class="nav-link" href="/admin/ajouter">Tache en ➕</a>

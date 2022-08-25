@@ -14,7 +14,7 @@
 
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Mes Annonces</a>
+            <a class="navbar-brand" href="#">Conciergerie</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -32,10 +32,19 @@
                         <a class="nav-link" href="/taches/ajouter">Ajouter une tache</a>
                     </li>
                 </ul>
-                <!-- <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
+                <ul class="navbar-nav mb-lg-0 ms-auto">
+                    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/logout">déconnexion</a>
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/profil">Profil</a>
+                        <?php else: ?>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/users/login">Connexion</a>
+                </ul>
+                <?php endif; ?>
             </div>
         </div>
     </nav>
