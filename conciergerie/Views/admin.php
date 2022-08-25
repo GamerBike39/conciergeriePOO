@@ -29,10 +29,10 @@
                         <a class="nav-link" aria-current="page" href="/admin">Accueil de l'admin</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/annonces">Liste des annonces</a>
+                        <a class="nav-link" href="/taches">Liste des taches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/annonces/ajouter">Ajouter une annonce</a>
+                        <a class="nav-link" href="/taches/ajouter">Ajouter une tache</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">

@@ -27,6 +27,10 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/annonces">Liste des annonces</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/annonces/ajouter">Ajouter une annonce</a>
+                    </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">
                     <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>

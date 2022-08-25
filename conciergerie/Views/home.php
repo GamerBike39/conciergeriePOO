@@ -12,7 +12,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Mes Annonces</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -23,34 +23,28 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/">Accueil du site</a>
+                        <a class="nav-link" aria-current="page" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/admin">Accueil de l'admin</a>
+                        <a class="nav-link" href="/taches">Liste des taches</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/annonces">Liste des annonces</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/annonces/ajouter">Ajouter une annonce</a>
+                        <a class="nav-link" href="/taches/ajouter">Ajouter une tache</a>
                     </li>
                 </ul>
-                <ul class="navbar-nav mb-lg-0 ms-auto">
-                    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user']['id'])): ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/logout">déconnexion</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/users/profil">Profil</a>
-                        <?php else: ?>
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="/users/login">Connexion</a>
-                </ul>
-                <?php endif; ?>
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
             </div>
         </div>
     </nav>
+
+    <?php if(!empty($_SESSION['message'])) : ?>
+    <div class="alert alert-success" role="alert">
+        <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
+    </div>
+    <?php endif; ?>
 
 
     <div class="container">
@@ -61,11 +55,13 @@
         <?php endif; ?>
         <?= $contenu ?>
     </div>
+    <div class="text-center">
+        <a href="/annonces" class="btn-primary">Voir la liste des annonces</a>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
         integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
     </script>
-    <script src="/js/script.js"></script>
 </body>
 
 </html>
