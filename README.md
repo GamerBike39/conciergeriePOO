@@ -64,6 +64,8 @@ Les **espaces de nom (namespace)** permettent d'attribuer "**virtuellement**" de
 Un **autoloader** où nous allons mettre en place un **système de chargement des fichiers à la demande**.
 En résumé, si le serveur PHP trouve une classe qu'il ne connaît pas, il va chercher le fichier correspondant et le charger pour nous.
 
+un **formBuilder** nous permettant de générer des formulaires en lui indiquant valeur.e.s et paramètre.s
+
 Un système de **MVC** : 
 
 > This project was carried out using tutorials from
@@ -74,17 +76,17 @@ Un système de **MVC** :
 > An **autoloader** where we will set up an **on-demand file loading
 > system**. In summary, if the PHP server finds a class that it does not
 > know, it will look for the corresponding file and load it for us.
+> a **formBuilder** allowing us to generate forms by indicating value.e.s and parameter.s
 > A **MVC** system:
 
 ![description du MVC](https://nouvelle-techno.fr/assets/uploads/content/a16f52e9a52a87b3c68065c4dd2d470a.jpg)
 *******
 
 Pour m'aider à la programmation j'ai utilisé les extensions VSCode me permettant d'intégrer les setters et getters à l'aide d'un clic droit. Comme [Php-getters-setters](https://marketplace.visualstudio.com/items?itemName=phproberto.vscode-php-getters-setters)
-Ainsi que Bootsrap, pour n'avoir à me concentrer plus sur le côté "back" que "front"
+Ainsi que Bootsrap, pour facilité le 'front' pour la mise en forme des tableaux et formulaires
 
 > To help me with programming I used VSCode extensions allowing me to
 > integrate setters and getters using a right click. Like
 > [php-getters-setters](https://marketplace.visualstudio.com/items?itemName=phproberto.vscode-php-getters-setters)
-> As well as Bootsrap, so I don't have to focus more on the "back" side
-> than the "front"
+> As well as Bootsrap, so I have focus more on the "back" side  than the "front"
 
