@@ -52,7 +52,3 @@ Pour accéder à la partie Admin du site, vous aurez besoin d'un user enregistr�
 > roles is JSON. It can have the value Null, by default its role will be
 > that of a "normal user" To access the Admin part of the site, you will
 > need a user registered as "**ROLE_ADMIN**"
-
-```
-
-
