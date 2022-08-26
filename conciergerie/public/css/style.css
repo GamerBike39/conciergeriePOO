@@ -1,0 +1,28 @@
+.title {
+    font-size: 9rem;
+}
+
+.card-img-overlay {
+    top: 0;
+    left: 44%;
+}
+
+.card-text {
+    font-size: 2rem;
+}
+
+.immeuble {
+    background-image: url("../img/immeuble.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 94vh;
+    width: 100%;
+}
+
+.card-img-overlay2 {
+    position: absolute;
+    bottom: 31%;
+    right: 0%;
+    padding: var(--bs-card-img-overlay-padding);
+    font-size: 1.5em;
+}

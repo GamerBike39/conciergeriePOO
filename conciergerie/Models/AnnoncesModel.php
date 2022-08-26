@@ -96,45 +96,6 @@ class AnnoncesModel extends Model{
         return $this;
     }
 
-    /**
-     * Get the value of id
-     */ 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set the value of id
-     *
-     * @return  self
-     */ 
-    public function setId($id)
-    {
-        $this->id = $id;
-
-        return $this;
-    }
-
-        /**
-     * Get the value of users_id
-     */ 
-    public function getUsers_id():int
-    {
-        return $this->users_id;
-    }
-
-    /**
-     * Set the value of users_id
-     *
-     * @return  self
-     */ 
-    public function setUsers_id( int $users_id)
-    {
-        $this->users_id = $users_id;
-
-        return $this;
-    }
 
 
 }

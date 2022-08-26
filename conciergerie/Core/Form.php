@@ -160,7 +160,7 @@ class Form
         public function ajoutSelect(string $nom, array $options, array $attributs = []): self
         {
             // on crée le select
-            $this->formCode .= "<select name='$nom'";
+            $this->formCode .= "<select name='$nom' class='form-select'";
             // on ajoute les attributs 
             $this->formCode .= $attributs ? $this->ajoutAttributs($attributs).'>' : '>';
             // on boucle sur les options
