@@ -78,10 +78,10 @@
         <div class="card text-bg-dark col-12 ">
             <div class="immeuble"></div>
             <div class="card-img-overlay">
-                <p class="title m-0 p-0">Bienvenue</p>
+                <p class="title m-0 p-0 display-1">Bienvenue</p>
                 <a class="nav-link m-0 ps-3" aria-current="page" href="/users/login"> Se connecter</a>
             </div>
-            <div class="card-img-overlay2">
+            <div class="card-img-overlay2 col-12 col-lg-3">
                 <p>Vous pourrez ici : </p>
                 <ul>
                     <li>Consulter l'actualité de votre immeuble</li>

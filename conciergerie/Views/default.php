@@ -63,8 +63,7 @@
             <div class="card text-bg-dark col-12 ">
                 <div class="immeuble"></div>
                 <div class="card-img-overlay">
-                    <p class="title">Connexion</p>
-                    <div class="formLog col-4">
+                    <div class="formLog col-12 col-lg-4">
                         <?= $contenu ?>
                     </div>
                 </div>
