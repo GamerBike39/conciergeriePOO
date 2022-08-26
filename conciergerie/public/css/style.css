@@ -1,6 +1,6 @@
-.title {
+/* .title {
     font-size: 9rem;
-}
+} */
 
 .card-img-overlay {
     top: 0;
@@ -25,4 +25,16 @@
     right: 0%;
     padding: var(--bs-card-img-overlay-padding);
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 768px) {
+    .immeuble {
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .card-img-overlay {
+        top: 0%;
+        left: 0%;
+    }
 }
