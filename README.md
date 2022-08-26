@@ -1,3 +1,4 @@
+
 # Conciergerie
 
 Bienvenue dans ce projet conciergerie
@@ -52,3 +53,38 @@ Pour accéder à la partie Admin du site, vous aurez besoin d'un user enregistr�
 > roles is JSON. It can have the value Null, by default its role will be
 > that of a "normal user" To access the Admin part of the site, you will
 > need a user registered as "**ROLE_ADMIN**"
+
+******************
+
+Ce projet a été réalisé à l'aide des tutos de [Nouvelle-Techno.fr](https://github.com/NouvelleTechno) sur le POO
+Nous avons dans ce projet utilisé : 
+
+Les **espaces de nom (namespace)** permettent d'attribuer "**virtuellement**" des dossiers à nos classes.
+
+Un **autoloader** où nous allons mettre en place un **système de chargement des fichiers à la demande**.
+En résumé, si le serveur PHP trouve une classe qu'il ne connaît pas, il va chercher le fichier correspondant et le charger pour nous.
+
+Un système de **MVC** : 
+
+> This project was carried out using tutorials from
+> [Nouvelle-Techno.fr](https://github.com/NouvelleTechno) on the OOP In
+> this project we used:
+> The **namespaces** make it possible to "**virtually**" assign folders
+> to our classes.
+> An **autoloader** where we will set up an **on-demand file loading
+> system**. In summary, if the PHP server finds a class that it does not
+> know, it will look for the corresponding file and load it for us.
+> A **MVC** system:
+
+![description du MVC](https://nouvelle-techno.fr/assets/uploads/content/a16f52e9a52a87b3c68065c4dd2d470a.jpg)
+*******
+
+Pour m'aider à la programmation j'ai utilisé les extensions VSCode me permettant d'intégrer les setters et getters à l'aide d'un clic droit. Comme [Php-getters-setters](https://marketplace.visualstudio.com/items?itemName=phproberto.vscode-php-getters-setters)
+Ainsi que Bootsrap, pour n'avoir à me concentrer plus sur le côté "back" que "front"
+
+> To help me with programming I used VSCode extensions allowing me to
+> integrate setters and getters using a right click. Like
+> [php-getters-setters](https://marketplace.visualstudio.com/items?itemName=phproberto.vscode-php-getters-setters)
+> As well as Bootsrap, so I don't have to focus more on the "back" side
+> than the "front"
+
