@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Magellan</title>
 </head>
 
@@ -24,12 +25,6 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="/">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/taches">Liste des taches</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/admin/ajouter">Ajouter une tache</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">
@@ -54,27 +49,32 @@
                     </li>
                 </ul>
                 <?php endif; ?>
-                <!-- <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form> -->
             </div>
         </div>
     </nav>
 
-    <div class="container">
+    <div class="container-fluid m-0 p-0 ">
         <?php if(!empty($_SESSION['erreur'])) : ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $_SESSION['erreur']; unset($_SESSION['erreur']); ?>
         </div>
         <?php endif; ?>
-        <?= $contenu ?>
-    </div>
+        <div class="container-fluid m-0 p-0 home">
+            <div class="card text-bg-dark col-12 ">
+                <div class="immeuble"></div>
+                <div class="card-img-overlay">
+                    <p class="title">Connexion</p>
+                    <div class="formLog col-4">
+                        <?= $contenu ?>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-    </script>
-    <script src="/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+        </script>
+        <script src="/js/script.js"></script>
 </body>
 
 </html>

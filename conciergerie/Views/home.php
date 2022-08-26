@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Titre</title>
 </head>
 
@@ -72,7 +73,25 @@
         </div>
         <?php endif; ?>
     </div>
-    <?= $contenu ?>
+
+    <div class="container-fluid m-0 p-0 home">
+        <div class="card text-bg-dark col-12 ">
+            <div class="immeuble"></div>
+            <div class="card-img-overlay">
+                <p class="title m-0 p-0">Bienvenue</p>
+                <a class="nav-link m-0 ps-3" aria-current="page" href="/users/login"> Se connecter</a>
+            </div>
+            <div class="card-img-overlay2">
+                <p>Vous pourrez ici : </p>
+                <ul>
+                    <li>Consulter l'actualité de votre immeuble</li>
+                    <li>Poster une annonce</li>
+                    <li>Rechercher une annonce</li>
+                    <li>Contacter le concierge</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
         integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
