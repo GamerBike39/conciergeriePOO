@@ -79,7 +79,9 @@
             <div class="immeuble"></div>
             <div class="card-img-overlay">
                 <p class="title m-0 p-0 display-1">Bienvenue</p>
+                <?php if (!isset($_SESSION['user']) && empty($_SESSION['user']['id'])): ?>
                 <a class="nav-link m-0 ps-3" aria-current="page" href="/users/login"> Se connecter</a>
+                <?php endif; ?>
             </div>
             <div class="card-img-overlay2 col-12 col-lg-3">
                 <p>Vous pourrez ici : </p>
