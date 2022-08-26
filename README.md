@@ -44,7 +44,8 @@ Pour ce projet vous aurez besoin d'une base de données "**concierge**" avec deu
 | id| email| password | roles|
 |---|-------|------------|---|
 |1  | test@test.com | t=4,p=1$qjDzfTtaKZw| ["ROLE_ADMIN"]|
-|1  | toto@test.com | dsfgsr$sd*djDzfTtaKZw| | null
+|1  | toto@test.com | dsfgsr$sd*djDzfTtaKZw| | null|
+****************************
 roles est un JSON. Il peut avoir la valeur Null, par défaut son rôle sera celui d'un "user normal"
 Pour accéder à la partie Admin du site, vous aurez besoin d'un user enregistré en tant que "**ROLE_ADMIN**"
 
