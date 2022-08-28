@@ -23,7 +23,7 @@ Ce projet est pour moi l'occasion de découvrir le POO et les MVC (Model-View-Co
 Il est nécessaire d'avoir Wamp,Xamp,Mamp,Laragon pour lancer ce projet. Ainsi qu'une base de donnée en SQL
 Le fichier index étant dans un dossier "public", il est impératif à la création de votre "localhost" d'indiquer le chemin où est situé projet > public > index.php
 
-> It is necessary to have Wamp, Xamp, Mamp, Laragon to launch this
+> It is necessary to have Wamp, Lamp, Mamp, Laragon to launch this
 > project. As well as a database in SQL The index file being in a
 > "public" folder, it is imperative when creating your "localhost" to
 > indicate the path where project > public > index.php is located
