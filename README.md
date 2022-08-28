@@ -66,7 +66,7 @@ En résumé, si le serveur PHP trouve une classe qu'il ne connaît pas, il va ch
 
 un **formBuilder** nous permettant de générer des formulaires en lui indiquant valeur.e.s et paramètre.s
 
-Un système de **MVC** : 
+Une structure **MVC** : 
 
 > This project was carried out using tutorials from
 > [Nouvelle-Techno.fr](https://github.com/NouvelleTechno) on the OOP In
