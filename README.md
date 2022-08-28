@@ -3,14 +3,14 @@
 
 Bienvenue dans ce projet conciergerie
 
-Programmé en php orienté objet ainsi que l'utilisation de Bootstrap 5
+Programmé en php orienté objet + Bootstrap 5
 Ce projet est pour moi l'occasion de découvrir le POO et les MVC (Model-View-Controller) et les mettre en pratique. Il est destiné à évoluer avec le temps afin de proposer un site le plus complet possible.
 -> DashBoard pour les admins (concierges, propriétaires etc...) > Dispo pour l'instant : CRUD des tâches du concierge
 ->Annonces pour les résidents (aide, vente etc..) > à développer
 ->Actualité de la vie locale > à développer
 ->Location/vente des biens immobiliers > ) développer
 
-> Programmed in object oriented php as well as using Bootstrap 5 This
+> Programmed in object oriented php + Bootstrap 5 This
 > project is an opportunity for me to discover OOP and MVC
 > (Model-View-Controller) and put them into practice. It is intended to
 > evolve over time in order to offer the most complete site possible.
