@@ -3,9 +3,10 @@
 namespace App\Controllers;
 
 use App\Core\Form;
+use App\Models\Model;
 use App\Models\UsersModel;
 use App\Models\TachesModel;
-use App\Models\Model;
+use App\Models\AnnoncesModel;
 
 class AdminController extends Controller 
 {
@@ -100,6 +101,75 @@ class AdminController extends Controller
     }
 
     /**
+     * trier par date croissante
+     */
+    public function dateC()
+    {
+      if($this->isAdmin()){
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->orderBy(array("date" => "DESC"));
+        $this->render('admin/taches', compact('taches'), "admin");
+    }
+    }
+    /**
+     * trier par date décroissante
+     */
+    public function dateD()
+    {
+      if($this->isAdmin()){
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->orderBy(array("date" => "ASC"));
+        $this->render('admin/taches', compact('taches'), "admin");
+    }
+    }
+    /**
+     * trier par etage croissant
+     */
+    public function etageC()
+    {
+      if($this->isAdmin()){
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->orderBy(array("etage" => "ASC"));
+        $this->render('admin/taches', compact('taches'), "admin");
+    }
+    }
+    /**
+     * trier par etage décroissant
+     */
+    public function etageD()
+    {
+      if($this->isAdmin()){
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->orderBy(array("etage" => "DESC"));
+        $this->render('admin/taches', compact('taches'), "admin");
+    }
+    }
+    /**
+     * trier par appart croissant
+     */
+    public function appartC()
+    {
+      if($this->isAdmin()){
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->orderBy(array("appart" => "ASC"));
+        $this->render('admin/taches', compact('taches'), "admin");
+    }
+    }
+    /**
+     * trier par appart décroissant
+     */
+    public function appartD()
+    {
+      if($this->isAdmin()){
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->orderBy(array("appart" => "DESC"));
+        $this->render('admin/taches', compact('taches'), "admin");
+    }
+    }
+
+
+
+    /**
      * choisir date
      *
      * @param string $date
@@ -165,7 +235,7 @@ class AdminController extends Controller
             // le formulaire est incomplet
             $_SESSION['erreur'] = !empty($_POST['erreur']) ? "Le formulaire est incomplet" : '';
             $date = isset($_POST['date']) ? strip_tags($_POST['date']) : '';
-        
+            $type_tache = isset($_POST['type_tache']) ? strip_tags($_POST['type_tache']) : '';
             $desc_tache = isset($_POST['desc_tache']) ? strip_tags($_POST['desc_tache']) : '';
             $appart = isset($_POST['appart']) ? strip_tags($_POST['appart']) : '';
             $etage = isset($_POST['etage']) ? strip_tags($_POST['etage']) : '';
@@ -178,9 +248,10 @@ class AdminController extends Controller
           -> ajoutLabefFor('date', 'date de l\'annonce :')
           -> ajoutInput('date', 'date', ['id' => 'date', 'class' => 'form-control', 'placeholder' => 'date', 'required' => 'required', 'value' => $date])
           -> ajoutLabefFor('type_tache', 'Type de la tache:')
-          -> ajoutSelect('type_tache', ['reparation'=> 'reparation','changement' => 'changement','assistance'=> 'assistance', 'autre'=>'autre'])
+          -> ajoutSelect('type_tache',['entretien' => 'entretien', 'reparation' => 'reparation','assistance' => 'assistance', 'autre' => 'autre'])
+          // -> ajoutInput('type_tache', 'type_tache', ['id' => 'type_tache', 'class' => 'form-control', 'placeholder' => 'type de la tache', 'required' => 'required', 'value' => $type_tache])
           -> ajoutLabefFor('description', 'Description de la tache :')
-          -> ajoutTextarea('description', '', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required', 'value' => $desc_tache])
+          -> ajoutInput('description', 'desc_tache', ['id' => 'description', 'class' => 'form-control', 'placeholder' => 'Votre description' , 'required' => 'required', 'value' => $desc_tache])
             -> ajoutLabefFor('appart', 'Appartement :')
             -> ajoutInput('number', 'appart', ['id' => 'appart', 'class' => 'form-control', 'placeholder' => 'Appartement', 'required' => 'required', 'value' => $appart])
             -> ajoutLabefFor('etage', 'Etage :')
@@ -318,6 +389,38 @@ class AdminController extends Controller
         if($this->isAdmin()){
             $user= new UsersModel();
             $user->delete($id);
+            header('Location: '.$_SERVER['HTTP_REFERER']);
+           
+        }
+    }
+
+
+    // ********************************************************************************
+    /**
+     * affiche la liste des annonces sous forme de tableau
+     *
+     * @return void
+     */
+    public function annonces()
+    {
+        if($this->isAdmin()){
+            $annoncesModel = new AnnoncesModel();
+            $annonces = $annoncesModel->findAll();
+            $this->render('admin/annonces', compact('annonces'), "admin");
+            // compact évite les tableaux associatifs
+        }
+    }
+
+     /**
+     * Supprime une annonce si l'on est admin
+     *
+     * @return void
+     */
+    public function supprimeAnnonce(int $id)
+    {
+        if($this->isAdmin()){
+            $annonce = new AnnoncesModel();
+            $annonce->delete($id);
             header('Location: '.$_SERVER['HTTP_REFERER']);
            
         }

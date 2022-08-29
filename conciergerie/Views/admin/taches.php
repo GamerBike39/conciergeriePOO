@@ -2,19 +2,20 @@
 
             <thead>
                 <th>ID</th>
-                <th class="d-flex">Date <p>⬆️</p>
-                    <p>⏬</p>
+                <th>Date <a href="/admin/dateC">&nbsp;↓&nbsp;</a><a href="/admin/dateD">&nbsp;↑&nbsp;</a>
                 </th>
                 <th>Type</th>
                 <th>Desc</th>
-                <th>Appart</th>
-                <th>Etage</th>
+                <th>Appart <a href="/admin/appartC">&nbsp;↓&nbsp;</a><a href="/admin/appartD">&nbsp;↑&nbsp;</a>
+                </th>
+                <th>Etage<a href="/admin/etageC">&nbsp;↓&nbsp;</a><a href="/admin/etageD">&nbsp;↑&nbsp;</a>
+                </th>
             </thead>
             <tbody>
                 <?php foreach ($taches as $tache): ?>
                 <tr>
                     <td><?= $tache->id ?></td>
-                    <td><a class="nav-link col-2" href="/admin/date/<?= $tache->date ?>"><?= $tache->date ?></a>
+                    <td><a class="nav-link col-12" href="/admin/date/<?= $tache->date ?>"><?= $tache->date ?></a>
                     <td><a class="nav-link col-2"
                             href="/admin/type/<?= $tache->type_tache ?>"><?= $tache->type_tache ?></a>
                     </td>

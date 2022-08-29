@@ -30,7 +30,10 @@
                         <a class="nav-link" href="#">Actualité</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Déposer une annonce</a>
+                        <a class="nav-link" href="/annonces/ajouter">Déposer une annonce</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/annonces">voir les annonces</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">

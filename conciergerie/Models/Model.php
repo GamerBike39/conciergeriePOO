@@ -45,6 +45,24 @@ class Model extends Db
         return $this->requete('SELECT * FROM ' . $this->table . ' WHERE date = ?', [$date])->fetchAll();
     }
 
+   public function orderBy(array $criteres){
+    $champs = [];
+    $valeurs = [];
+      //   on boucle pour éclater le tableau
+      foreach($criteres as $champ => $valeur){
+      // select * from annonces where actif = ? AND signale = 0
+      // bindvalue(1, valeur)
+      // créons actif = ?
+
+      $champs[] = "$champ = ?";
+      $valeurs[] = $valeur;
+      }
+      // on transforme le tableau champ en une chaine de caractères
+      $liste_champs = implode(' AND ', $champs);
+    return $this->requete('SELECT * FROM ' . $this->table . ' ORDER BY ' . $champ . ' ' . $valeur)->fetchAll();
+    }
+
+
     
     public function create(){
         $champs = [];

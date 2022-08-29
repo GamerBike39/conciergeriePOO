@@ -6,11 +6,6 @@ window.onload = () => {
     }
 
     const btnDel = document.querySelectorAll(".btn-del");
-    for (let btn of btnDel) {
-        btn.addEventListener("click", supprimer)
-        console.log("ok");
-    }
-
 }
 
 function activer() {

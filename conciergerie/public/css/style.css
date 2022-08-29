@@ -1,15 +1,28 @@
-/* .title {
-    font-size: 9rem;
-} */
+a {
+    text-decoration: none;
+}
 
 .card-img-overlay {
     top: 0;
     left: 44%;
 }
 
-.card-text {
-    font-size: 2rem;
+.task {
+    background-image: url("../img/task.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
 }
+
+.usersImg {
+    background-image: url("../img/users.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 50px;
+    width: 50px;
+}
+
 
 .immeuble {
     background-image: url("../img/immeuble.jpg");

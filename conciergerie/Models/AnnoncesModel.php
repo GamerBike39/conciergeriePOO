@@ -7,33 +7,13 @@ class AnnoncesModel extends Model{
     protected $titre;
     protected $description;
     protected $created_at;
-    protected $actif;
+  
 
     
     public function __construct(){
         
         $this->table = 'annonces';
 
-    }
-
-    /**
-     * Get the value of actif
-     */ 
-    public function getActif()
-    {
-        return $this->actif;
-    }
-
-    /**
-     * Set the value of actif
-     *
-     * @return  self
-     */ 
-    public function setActif($actif)
-    {
-        $this->actif = $actif;
-
-        return $this;
     }
 
     /**

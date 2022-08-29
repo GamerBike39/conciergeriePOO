@@ -17,7 +17,7 @@ class AnnoncesController extends Controller
       // on instancie le modèle correspondant à la table annonces pour pouvoir l'utiliser dans la vue
        $annoncesModel = new AnnoncesModel();
       // on va chercher toutes les annonces.
-      $annonces = $annoncesModel->findBy(array("actif" => 0));
+      $annonces = $annoncesModel->findAll();
       $this->render('annonces/index',compact('annonces'));
        
     }
