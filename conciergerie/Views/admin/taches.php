@@ -15,7 +15,8 @@
                 <?php foreach ($taches as $tache): ?>
                 <tr>
                     <td><?= $tache->id ?></td>
-                    <td><a class="nav-link col-12" href="/admin/date/<?= $tache->date ?>"><?= $tache->date ?></a>
+                    <td><a class="nav-link col-12"
+                            href="/admin/date/<?= $tache->date ?>"><?=  strftime('%d-%m-%Y',strtotime($tache->date)); ?></a>
                     <td><a class="nav-link col-2"
                             href="/admin/type/<?= $tache->type_tache ?>"><?= $tache->type_tache ?></a>
                     </td>

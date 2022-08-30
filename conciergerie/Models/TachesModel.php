@@ -18,8 +18,7 @@ class TachesModel extends Model{
         $this->table = 'taches';
     }
 
-
-
+ 
     /**
      * Get the value of resident_id
      */ 
@@ -135,8 +134,8 @@ class TachesModel extends Model{
      */ 
     public function setDate($date)
     {
-        $this->date = $date;
 
+        $this->date = $date;
         return $this;
     }
 
@@ -159,4 +158,6 @@ class TachesModel extends Model{
 
         return $this;
     }
+   
+
     }
