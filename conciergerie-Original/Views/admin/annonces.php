@@ -16,6 +16,7 @@
             <td>
                 <a href="/annonces/modifier/<?= $annonce->id ?>" class=" btn btn-warning">Modifier</a>
                 <a href="/admin/supprimeAnnonce/<?= $annonce->id ?>" class=" btn btn-danger btn-del">Supprimer</a>
+                <a href="/admin/supprimeAnnonce/<?= $annonce->id ?>" class="trigger-btn" data-toggle="modal">Modal</a>
             </td>
         </tr>
         <?php endforeach; ?>

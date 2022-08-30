@@ -55,7 +55,7 @@
     </nav>
 
 
-    <div class="container-fluid col-7 my-auto py-5">
+    <div class="container col-6 my-auto py-5">
         <?php if(!empty($_SESSION['erreur'])) : ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $_SESSION['erreur']; unset($_SESSION['erreur']); ?>

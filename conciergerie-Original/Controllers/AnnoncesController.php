@@ -4,6 +4,7 @@ namespace App\Controllers;
 use App\Core\Form;
 use App\Models\AnnoncesModel;
 
+
 class AnnoncesController extends Controller
 {
     /**
@@ -18,7 +19,7 @@ class AnnoncesController extends Controller
        $annoncesModel = new AnnoncesModel();
       // on va chercher toutes les annonces.
       $annonces = $annoncesModel->findAll();
-      $this->render('annonces/index',compact('annonces'), 'annonces');
+      $this->render('annonces/index',compact('annonces'));
        
     }
 

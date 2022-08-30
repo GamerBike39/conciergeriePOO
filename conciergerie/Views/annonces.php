@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-    <title>Titre</title>
+    <title>annonces</title>
 </head>
 
 <body>
@@ -27,10 +27,13 @@
                         <a class="nav-link" aria-current="page" href="/">Accueil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Actualité</a>
+                        <a class="nav-link" aria-current="page" href="/">Actualités</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Déposer une annonce</a>
+                        <a class="nav-link" href="/annonces/ajouter">Déposer une annonce</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/annonces">voir les annonces</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-lg-0 ms-auto">
@@ -59,46 +62,27 @@
         </div>
     </nav>
 
-    <?php if(!empty($_SESSION['message'])) : ?>
-    <div class="alert alert-success" role="alert">
-        <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
-    </div>
-    <?php endif; ?>
-
-
-    <div class="container">
+    <div class="container-fluid m-0 p-0 ">
         <?php if(!empty($_SESSION['erreur'])) : ?>
         <div class="alert alert-danger" role="alert">
             <?php echo $_SESSION['erreur']; unset($_SESSION['erreur']); ?>
         </div>
         <?php endif; ?>
-    </div>
-
-    <div class="container-fluid m-0 p-0 home">
-        <div class="card text-bg-dark col-12 ">
-            <div class="immeuble"></div>
-            <div class="card-img-overlay">
-                <p class="title m-0 p-0 display-1">Bienvenue</p>
-                <?php if (!isset($_SESSION['user']) && empty($_SESSION['user']['id'])): ?>
-                <a class="nav-link m-0 ps-3" aria-current="page" href="/users/login"> Se connecter</a>
-                <?php endif; ?>
-            </div>
-            <div class="card-img-overlay2 col-12 col-lg-3">
-                <p>Vous pourrez ici : </p>
-                <ul>
-                    <li>Consulter l'actualité de votre immeuble</li>
-                    <li>Poster une annonce</li>
-                    <li>Rechercher une annonce</li>
-                    <li>Contacter le concierge</li>
-                </ul>
+        <div class="container-fluid m-0 p-0 home">
+            <div class="card text-bg-dark col-12 ">
+                <div class="immeuble"></div>
+                <div class="card-img-overlay col-12 listeAnnonces">
+                    <div class="formLog col-12 col-lg-4">
+                        <?= $contenu ?>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
-        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
-    </script>
-    <script src="/js/script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+            integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous">
+        </script>
+        <script src="/js/script.js"></script>
 </body>
 
 </html>
