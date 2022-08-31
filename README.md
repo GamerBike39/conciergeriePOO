@@ -50,7 +50,7 @@ Pour ce projet vous aurez besoin d'une base de données "**concierge**" avec deu
 
 3e table : "**annonces**" 
 | id| titre | description | created_at| users_id
-|---|-------|------------|---|
+|---|-------|------------|---|------|
 |1  | je suis un titre| je suis une descrpition | 2022-08-30 | 5 |
 
 ****************************
