@@ -3,7 +3,6 @@
 namespace App\Controllers;
 
 use App\Core\Form;
-use App\Models\Model;
 use App\Models\UsersModel;
 use App\Models\TachesModel;
 use App\Models\AnnoncesModel;
@@ -31,7 +30,6 @@ class AdminController extends Controller
             $tachesModel = new TachesModel();
             $taches = $tachesModel->findAll();
             $this->render('admin/taches', compact('taches'), "admin");
-            // compact évite les tableaux associatifs
         }
     }
 
@@ -98,7 +96,24 @@ class AdminController extends Controller
             $taches = $tachesModel->findByDate($date);
             $this->render('admin/taches', compact('taches'), "admin");
         }
+     
     }
+
+    // trier par date et la choisir avec un formulaire
+    public function dateForm()
+    {
+        if($this->isAdmin()){
+            $form = new Form();
+            $form->debutForm('post', 'date')
+            ->ajoutLabefFor('date', 'Date')
+            ->ajoutInput('date', 'date')
+            ->ajoutBouton('submit')
+            ->finForm();
+            $this->render('admin/dateForm', compact('form'), "admin");
+        }
+    }
+
+
 
     /**
      * trier par date croissante
@@ -173,7 +188,7 @@ class AdminController extends Controller
      * choisir date
      *
      * @param string $date
-     * @return void
+     * @return 
      */
     public function choixDate(string $date)
     {
@@ -363,9 +378,55 @@ class AdminController extends Controller
       }
     }
 
+    /**
+     * recherche avec multicritères
+     */
+    function recherche(){
+      if(isset($_SESSION['user']) && !empty($_SESSION['user']['id']))
+    {
+        $tachesModel = new TachesModel();
+        $taches = $tachesModel->findAll();
+        if(!$taches)
+        {
+          http_response_code(404);
+          $_SESSION['erreur'] = "Aucune tache trouvée";
+          header("Location: /taches");
+          exit;
+        }
 
+
+          // on instancie le modèle
+          $tachesModel = new TachesModel;
+
+          // on hydrate l'objet avec les données du formulaire
+         
+          // on enregistre l'annonce dans la bdd
+          $tachesModel->search();
+          // on redirige
+
+        
+        
+        
+
+        // on crée le formulaire
+        $form = new Form;
+          $form   -> debutForm()
+          -> ajoutLabefFor('date', 'date de l\'annonce :')
+          -> ajoutInput('date', 'date', ['id' => 'date', 'class' => 'form-control', 'placeholder' => 'date'])
+          -> ajoutLabefFor('type_tache', 'Type de la tache:')
+          -> ajoutSelect('type_tache',['entretien' => 'entretien', 'reparation' => 'reparation','assistance' => 'assistance', 'autre' => 'autre'])
+          -> ajoutLabefFor('appart', 'Appartement :')
+            -> ajoutInput('number', 'appart', ['id' => 'appart', 'class' => 'form-control', 'placeholder' => 'Appartement'])
+            -> ajoutLabefFor('etage', 'Etage :')
+            -> ajoutInput('number', 'etage', ['id' => 'etage', 'class' => 'form-control', 'placeholder' => 'Etage'])
+          -> ajoutBouton('Rechercher', ['class' => 'btn btn-primary'])
+          ->finForm();
+
+                $this->render('admin/recherche', ['form'=>$form->create()], "admin");
+    }
+
+  }
     
-
 
     /**
      * afficher tout les utilisateurs
@@ -444,6 +505,7 @@ class AdminController extends Controller
             exit;
         }
     }
+
 
 
 }

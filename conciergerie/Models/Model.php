@@ -85,6 +85,7 @@ class Model extends Db
           return $this->requete('INSERT INTO ' .$this->table.' ('.$liste_champs.') VALUES('.$liste_inter.')', $valeurs);
     }
 
+
     public function update(){
         $champs = [];
         $valeurs = [];
@@ -105,6 +106,12 @@ class Model extends Db
     public function delete(int $id){
         return $this->requete('DELETE FROM ' . $this->table . ' WHERE id = ?', [$id]);
     }
+
+   
+    public function dateSearch() {
+        return $this->requete('SELECT * FROM ' . $this->table . ' WHERE date = ?', [$this->date]);
+    }
+
 
 
     function requete(string $sql, array $attributs = null)
@@ -137,4 +144,5 @@ class Model extends Db
         }
         return $this;
     }
+
 }

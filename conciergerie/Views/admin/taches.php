@@ -35,8 +35,11 @@
                 <div class="alert alert-success" role="alert">
                     <?php echo $_SESSION['message']; unset($_SESSION['message']); ?>
                 </div>
+
+
                 <?php endif; ?>
 
         </table>
 
-        <a class="nav-link col-2" href="/admin/ajouter">Ajouter une tache ➕</a>
+        <a class="nav-link col-2 ajouterBtn" href="/admin/ajouter">Ajouter une tache ➕</a>
+        <a class="nav-link col-2 m-2" href="/admin/recherche">Rechercher 🔍</a>

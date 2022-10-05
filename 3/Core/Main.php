@@ -43,7 +43,7 @@ class Main
             // on met une majuscule en première lettre, on ajoute le namespace complet avant et on ajoute le controlleur après.
             $controller = '\\App\\Controllers\\'.ucfirst(array_shift($params)).'Controller';
 
-            // on instancie le controlleur ptet pas au bon endroit
+            // on instancie le controlleur 
             $controller = new $controller();
             // on récupère le 2e paramètre de l'url
             $action = isset($params[0]) ? array_shift($params) : 'index';
